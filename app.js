@@ -12,8 +12,10 @@ var usersRouter = require('./routes/users');
 //var posts = require('./routes/posts');
 
 // Conect to database
-
-mongoose.connect(process.env.MONGO_URI, {
+const URI = process.env.MONGO_URI
+    ? process.env.MONGO_URI
+    : 'mongodb://localhost/prueba11';
+mongoose.connect(URI , {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true 
